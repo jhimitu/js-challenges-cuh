@@ -107,14 +107,15 @@ function letterExists(word, letter) {
   console.log(word.includes(letter));
 }
 
-letterExists("superman", "e") //=> true
-letterExists("starship", "S") //=> false
-letterExists("th1s", "1") //=> true
-letterExists("he!lo", "!") //=> true
+// letterExists("superman", "e") //=> true
+// letterExists("starship", "S") //=> false
+// letterExists("th1s", "1") //=> true
+// letterExists("he!lo", "!") //=> true
 
 
 /* =========== *
 * Challenge 7 *
+Create a function isPrime that console.logs a boolean indicating if `number` is prime or not.
 * ============ */
 
 
@@ -131,11 +132,14 @@ function isPrime(number) {
 
 /* ========== *
 * Challenge 8 *
+Create a function range that console.logs all numbers between 'start' and 'end' in sequential order.
 * =========== */
 
 
 function range(start, end) {
-  //your code goes here...
+  for (let i = start; i < end + 1; i++) {
+    console.log(i);
+  }
 
 }
 

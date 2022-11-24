@@ -1,5 +1,7 @@
 /* ========== *
 * Challenge 1 ✅ *
+Replace the blank underscores inside the console logs 
+with the data type (i.e. 'string') you think each value will be. (Leave the quotes)
 * =========== */
 
 //Uncomment the lines below to test your code
@@ -10,7 +12,7 @@
 // var myVar;
 // console.log(typeof myVar === "undefined")
 
-// myVar = "Jhia"
+myVar = "Jhia"
 // console.log(typeof myVar === "string")
 
 //Comment them back out with two forward slashes at the beginning once you have finished
@@ -18,6 +20,8 @@
 
 /* ========== *
 * Challenge 2 ✅ *
+Create a functon buildSentence that takes three words (strings) and adds them together 
+and console.logs the whole sentence (string) complete with capitalization and punctuation.
 * =========== */
 
 
@@ -33,6 +37,8 @@ function buildSentence(word1, word2, word3) {
 
 /* ========== *
 * Challenge 3 ✅ *
+Create a function lastLetter that takes a word (string) and console.logs the last character/letter of that word.
+Hint: Remember that each character/letter in a string has an index position that you can access with brackets: []
 * =========== */
 
 
@@ -48,19 +54,31 @@ function lastLetter(word) {
 
 /* ========== *
 * Challenge 4 *
+Create a function buildGreeting that takes a time (integer) and a name (string) and print a greeting based on the following rules:
+If time is between 0 (inclusive) and 11 (inclusive): "Good Morning, <name>!
+If time is between 12 (inclusive) and 16 (inclusive): "Good Afternoon, <name>!
+If time is between 17 (inclusive) and 23 (inclusive): "Good Evening, <name>!
+If time is anything else: "That's not a real time, <name>. Maybe you need some sleep!
 * =========== */
 
 
 function buildGreeting(time, name) {
-  //your code goes here...
-
+  if (time >= 0 && time <= 11) {
+    console.log(`Good Morning, ${name}!`)
+  } else if (time >= 12 && time <= 16) {
+    console.log(`Good Afternoon, ${name}!`)
+  } else if (time >= 17 && time <= 23) {
+    console.log(`Good Evening, ${name}!`)
+  } else {
+    console.log(`That's not a real time, ${name}. Maybe you need some sleep!`)
+  }
 }
 
 
-//buildGreeting(8, "Maggie") //=> "Good Morning, Maggie!"
-//buildGreeting(12, "John") //=> "Good Afternoon, John!"
-//buildGreeting(22, "Stacey") //=> "Good Evening, Stacey!"
-//buildGreeting(31, "Derrick") //=> "That's not a real time, Derrick. Maybe you need some sleep!"
+// buildGreeting(8, "Maggie") //=> "Good Morning, Maggie!"
+// buildGreeting(12, "John") //=> "Good Afternoon, John!"
+// buildGreeting(22, "Stacey") //=> "Good Evening, Stacey!"
+// buildGreeting(31, "Derrick") //=> "That's not a real time, Derrick. Maybe you need some sleep!"
 
 
 /* ========== *

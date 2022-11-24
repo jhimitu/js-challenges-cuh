@@ -53,7 +53,7 @@ function lastLetter(word) {
 
 
 /* ========== *
-* Challenge 4 *
+* Challenge 4 ✅ *
 Create a function buildGreeting that takes a time (integer) and a name (string) and print a greeting based on the following rules:
 If time is between 0 (inclusive) and 11 (inclusive): "Good Morning, <name>!
 If time is between 12 (inclusive) and 16 (inclusive): "Good Afternoon, <name>!
@@ -82,30 +82,35 @@ function buildGreeting(time, name) {
 
 
 /* ========== *
-* Challenge 5 *
+* Challenge 5 ✅ *
+indexOf is a function that you can call on a string (string1) and accepts another string (string2) as an argument.
+It searches through string1 from left to right checking each character to see if it can find string2.
+If it finds string2 it returns the index position of the FIRST character that matches string2. If it cannot find string2 it returns negative one: -1.
+Enter the index position you think indexOf will return for each below.
 * =========== */
 
 
-// console.log( indexOf("CodeSmith", "o") === __ )
-// console.log( indexOf("hello", "ll") === __ )
-// console.log( indexOf("zebra", "z") === __ )
-// console.log( indexOf("banana", "B") === __ )
+// console.log( "CodeSmith".indexOf("o") === 1)
+// console.log( "hello".indexOf("ll") === 2)
+// console.log( "zebra".indexOf("z") === 0)
+// console.log( "banana".indexOf("B") === -1)
 
 
 /* ========== *
-* Challenge 6 *
+* Challenge 6 ✅ *
+Create a function letterExists that takes a word (string) and a 
+character (string), and console.logs whether that letter can be found inside that word.
 * =========== */
 
 
 function letterExists(word, letter) {
-  //your code goes here...
-
+  console.log(word.includes(letter));
 }
 
-// letterExists("superman", "e") //=> true
-// letterExists("starship", "S") //=> false
-// letterExists("th1s", "1") //=> true
-// letterExists("he!lo", "!") //=> true
+letterExists("superman", "e") //=> true
+letterExists("starship", "S") //=> false
+letterExists("th1s", "1") //=> true
+letterExists("he!lo", "!") //=> true
 
 
 /* =========== *

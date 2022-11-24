@@ -131,7 +131,7 @@ function isPrime(number) {
 
 
 /* ========== *
-* Challenge 8 *
+* Challenge 8 ✅ *
 Create a function range that console.logs all numbers between 'start' and 'end' in sequential order.
 * =========== */
 
@@ -149,31 +149,51 @@ function range(start, end) {
 
 
 /* =========== *
-* Challenge 9 *
+* Challenge 9 ✅ *
+Create a function myIndexOf that takes an array and an element and console.logs the index of the element in the array, or -1 if it doesn't exist.
+Assume the `ele` will be a primitive data type (no arrays or objects).
+DO NOT USE THE BUILT-IN `indexOf` METHOD IN YOUR SOLUTION!
 * ============ */
 
 
 function myIndexOf(array, ele){
-  // your code here...
+  let index = -1;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === ele) {
+      index = i;
+    }
+  }
+
+  console.log(index);
 
 }
 
-//myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
-//myIndexOf(["a", "b", "c"], "a") //=> 0
-//myIndexOf(["a", "b", "c"], "d") //=> -1
+// myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
+// myIndexOf(["a", "b", "c"], "a") //=> 0
+// myIndexOf(["a", "b", "c"], "d") //=> -1
 
 
 /* =========== *
-* Challenge 10 *
+* Challenge 10 ✅ *
+Create a function unique that console.logs an array where all the 
+duplicates of the input array have been removed; in other words, 
+every element remaining is unique.
 * ============ */
 
 function unique(array) {
-  //your code goes here...
+  const result = [];
 
+  for (let i = 0; i < array.length; i++) {
+    if (!result.includes(array[i])) {
+      result.push(array[i]);
+    }
+  }
+
+  console.log(result);
 }
 
-// unique([1, 1, 2, 3, 3]) => [1, 2, 3]
-// unique(["a", "a", "c", "aa", "b", "b"]) => ["a", "c", "aa", "b"]
+// unique([1, 1, 2, 3, 3]) // => [1, 2, 3]
+// unique(["a", "a", "c", "aa", "b", "b"]) // => ["a", "c", "aa", "b"]
 
 
 /* =========== *

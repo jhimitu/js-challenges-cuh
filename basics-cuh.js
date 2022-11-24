@@ -17,7 +17,7 @@
 
 
 /* ========== *
-* Challenge 2 *
+* Challenge 2 ✅ *
 * =========== */
 
 
@@ -27,17 +27,17 @@ function buildSentence(word1, word2, word3) {
 
 }
 
-buildSentence("coding", "is", "awesome") //=> "Coding is awesome."
-buildSentence("we're", "number", "1") //=> "We're number 1."
+// buildSentence("coding", "is", "awesome") //=> "Coding is awesome."
+// buildSentence("we're", "number", "1") //=> "We're number 1."
 
 
 /* ========== *
-* Challenge 3 *
+* Challenge 3 ✅ *
 * =========== */
 
 
 function lastLetter(word) {
-  //your code goes here...
+  console.log(word[word.length - 1]);
 }
 
 //Uncomment the lines below to test your code

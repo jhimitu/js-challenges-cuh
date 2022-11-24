@@ -1,17 +1,17 @@
 /* ========== *
-* Challenge 1 *
+* Challenge 1 ✅ *
 * =========== */
 
 //Uncomment the lines below to test your code
-console.log(typeof 7.0 === "number")
-console.log(typeof 22 === "number")
-console.log(typeof true === "boolean")
+// console.log(typeof 7.0 === "number")
+// console.log(typeof 22 === "number")
+// console.log(typeof true === "boolean")
 
-var myVar;
-console.log(typeof myVar === "undefined")
+// var myVar;
+// console.log(typeof myVar === "undefined")
 
-myVar = "Jhia"
-console.log(typeof myVar === "string")
+// myVar = "Jhia"
+// console.log(typeof myVar === "string")
 
 //Comment them back out with two forward slashes at the beginning once you have finished
 
@@ -22,12 +22,13 @@ console.log(typeof myVar === "string")
 
 
 function buildSentence(word1, word2, word3) {
-  //your code goes here...
+  let capitalizedWord = word1[0].toUpperCase() + word1.slice(1);
+  console.log(`${capitalizedWord} ${word2} ${word3}`);
 
 }
 
-//buildSentence("coding", "is", "awesome") //=> "Coding is awesome."
-//buildSentence("we're", "number", "1") //=> "We're number 1."
+buildSentence("coding", "is", "awesome") //=> "Coding is awesome."
+buildSentence("we're", "number", "1") //=> "We're number 1."
 
 
 /* ========== *

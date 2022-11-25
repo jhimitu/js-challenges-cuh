@@ -282,13 +282,31 @@ function divisibleByFivePairSum(array){
 
 
 /* =========== *
-* Challenge 14 *
+* Challenge 14 ✅ *
+Create a function highestScore that takes in an array of student objects as a parameter.
+
+It should return a string that corresponds to the student with the highest score.
+
+The string should contain that student's initials concatenated with their id.
+
+Assume the array contains at least 1 student object and the student with the highest score is unique (there are no ties).
 * ============ */
 
 function highestScore(students) {
-  // your code here...
+  let highestScore = 0;
+  let student = '';
 
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].score > highestScore) {
+      highestScore = students[i].score;
+      let studentNames = students[i].name.split(' ');
+      let firstInitial = studentNames[0][0];
+      let lastInitial = studentNames[1][0];
+      student = firstInitial + lastInitial + students[i].id;
+    }
+  }
 
+  return student;
 }
 
 //Uncomment the lines below to test your function:

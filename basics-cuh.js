@@ -114,7 +114,7 @@ function letterExists(word, letter) {
 
 
 /* =========== *
-* Challenge 7 *
+* Challenge 7 ❌ *
 Create a function isPrime that console.logs a boolean indicating if `number` is prime or not.
 * ============ */
 
@@ -197,11 +197,22 @@ function unique(array) {
 
 
 /* =========== *
-* Challenge 11 *
+* Challenge 11 ✅ *
+Create a function longestWord that that retuns the longest word of a sentence.
+If there are ties, the function should return the later word.
 * ============ */
 
 function longestWord(sentence) {
-  // your code here...
+  const words = sentence.split(' ');
+  let longestWord = '';
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length >= longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+
+  console.log(longestWord);
 
 }
 
@@ -214,11 +225,36 @@ function longestWord(sentence) {
 
 
 /* =========== *
-* Challenge 12 *
+* Challenge 12 ✅ *
+Create a function disemvowel that takes in a string and returns a string with all vowels removed.
 * ============ */
 
 function disemvowel(string) {
-  // your code here...
+  const vowels = {
+    a: "a",
+    e: "e",
+    i: "i",
+    o: "o",
+    u: "u",
+    A: "A",
+    E: "E",
+    I: "I",
+    O: "O",
+    U: "U"
+  };
+
+  let result = '';
+  
+  for (let i = 0; i < string.length; i++) {
+    // console.log(string[i])
+    if (string[i] in vowels) {
+      continue;
+    } else {
+      result += string[i]
+    }
+  }
+
+  return result;
   
 }
 
@@ -231,7 +267,7 @@ function disemvowel(string) {
 
 
 /* =========== *
-* Challenge 13 *
+* Challenge 13 ❌ *
 * ============ */
 
 function divisibleByFivePairSum(array){
@@ -268,7 +304,7 @@ function highestScore(students) {
 
 
 /* =========== *
-* Challenge 15 *
+* Challenge 15 ❌ *
 * ============ */
 
 function leastCommonMultiple(num1, num2) {

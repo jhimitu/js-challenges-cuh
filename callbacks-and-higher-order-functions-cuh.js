@@ -1,5 +1,5 @@
 // Type JavaScript here and click "Run Code" or press Ctrl + s
-console.log('Hello, world!');
+// console.log('Hello, world!');
 
 
 // Challenge 1 ✅
@@ -100,7 +100,7 @@ function reduce(array, callback, initialValue) {
 
 const nums = [4, 1, 3];
 const add = function(a, b) { return a + b; }
-console.log(reduce(nums, add, 0));   //-> 8
+// console.log(reduce(nums, add, 0));   //-> 8
 
 // Challenge 7
 /*
@@ -139,7 +139,7 @@ function union(arrays) {
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
-// Challenge 9
+// Challenge 9 ✅
 /*
 Construct a function objOfMatches that accepts two arrays and a callback. objOfMatches will build 
 an object and return it. To build the object, objOfMatches will test each element of the first array 
@@ -148,7 +148,16 @@ If there is a match, the element from the first array becomes a key in an object
 second array becomes the corresponding value.
 */
 function objOfMatches(array1, array2, callback) {
+    const matches = {};
 
+    for (let i = 0; i < array1.length; i++) {
+        let result = callback(array1[i]);
+        if (result === array2[i]) {
+            matches[array1[i]] = array2[i];
+        }
+    }
+
+    return matches;
 }
 
 // console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));

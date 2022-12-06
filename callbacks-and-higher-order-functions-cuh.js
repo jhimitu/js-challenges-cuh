@@ -164,7 +164,7 @@ function objOfMatches(array1, array2, callback) {
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 
-// Challenge 10
+// Challenge 10 ✅
 /*
 Construct a function multiMap that will accept two arrays: an array of values and an array of callbacks. 
 multiMap will return an object whose keys match the elements in the array of values. 
@@ -172,14 +172,23 @@ The corresponding values that are assigned to the keys will be arrays consisting
 from the array of callbacks, where the input to each callback is the key.
 */
 function multiMap(arrVals, arrCallbacks) {
+    const mapOfKeys = {};
 
+    for (let i = 0; i < arrVals.length; i++) {
+        mapOfKeys[arrVals[i]] = [];
+        for (let j = 0; j < arrCallbacks.length; j++) {
+            mapOfKeys[arrVals[i]].push(arrCallbacks[j](arrVals[i]));
+        }
+    }
+
+    return mapOfKeys;
 }
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 
-// Challenge 11
+// Challenge 11 ✅
 /*
 Construct a function objectFilter that accepts an object as the first parameter and a callback 
 function as the second parameter. objectFilter will return a new object. 
@@ -187,7 +196,16 @@ The new object will contain only the properties from the input object such that
 the property's value is equal to the property's key passed into the callback.
 */
 function objectFilter(obj, callback) {
+    const filteredObj = {};
 
+    for (let key in obj) {
+        let result = callback(key);
+        if (result === obj[key]) {
+            filteredObj[key] = result;
+        }
+    }
+
+    return filteredObj;
 }
 
 // const cities = {
@@ -198,7 +216,7 @@ function objectFilter(obj, callback) {
 // console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
 
 
-// Challenge 12
+// Challenge 12 ✅
 /*
 Create a function majority that accepts an array and a callback. The callback will return either true or false. 
 majority will iterate through the array and perform the callback on each element until it can be determined if 
@@ -206,13 +224,20 @@ the majority of the return values from the callback are true. If the number of t
 number of false returns, majority should return false.
 */
 function majority(array, callback) {
+    let trueVals = 0;
+    let falseVals = 0;
 
+    for (let i = 0; i < array.length; i++) {
+        callback(array[i]) ? trueVals++ : falseVals++;
+    }
+
+    return trueVals <= falseVals ? false : true;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const isOdd = function(num) { return num % 2 === 1; };
-// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+/*** Uncomment these to check your work! ***/
+const isItOdd = function(num) { return num % 2 === 1; };
+console.log(majority([1, 2, 3, 4, 5], isItOdd)); // should log: true
+console.log(majority([2, 3, 4, 5], isItOdd)); // should log: false
 
 
 // Challenge 13

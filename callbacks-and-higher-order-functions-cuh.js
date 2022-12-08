@@ -3,7 +3,7 @@
 
 
 // Challenge 1 ✅
-// Create a function addTwo that accepts one input and adds 2 to it.
+// Create a function called addTwo that accepts one input and adds 2 to it.
 function addTwo(num) {
     return num + 2;
 }
@@ -14,7 +14,7 @@ function addTwo(num) {
 
 
 // Challenge 2 ✅
-// Create a function addS that accepts one input and adds an "s" to it.
+// Create a function called addS that accepts one input and adds an "s" to it.
 function addS(word) {
     return word + 's';
 }
@@ -104,7 +104,7 @@ const add = function(a, b) { return a + b; }
 
 // Challenge 7
 /*
-Construct a function intersection that takes in an array of arrays, compares the inner arrays, 
+Construct a function called intersection that takes in an array of arrays, compares the inner arrays, 
 and returns a new array with elements found in all of them. BONUS: Use reduce!
 */
 function intersection(arrays) {
@@ -117,7 +117,7 @@ function intersection(arrays) {
 
 // Challenge 8 ✅
 /*
-Construct a function union that takes in an array of arrays, compares the inner arrays, and returns 
+Construct a function called union that takes in an array of arrays, compares the inner arrays, and returns 
 a new array that contains all elements. If there are duplicate elements, only add it once to the new array. 
 Preserve the order of the elements starting from the first element of the first array. BONUS: Use reduce!
 */
@@ -141,7 +141,7 @@ function union(arrays) {
 
 // Challenge 9 ✅
 /*
-Construct a function objOfMatches that accepts two arrays and a callback. objOfMatches will build 
+Construct a function called objOfMatches that accepts two arrays and a callback. objOfMatches will build 
 an object and return it. To build the object, objOfMatches will test each element of the first array 
 using the callback to see if the output matches the corresponding element (by index) of the second array. 
 If there is a match, the element from the first array becomes a key in an object, and the element from the 
@@ -166,7 +166,7 @@ function objOfMatches(array1, array2, callback) {
 
 // Challenge 10 ✅
 /*
-Construct a function multiMap that will accept two arrays: an array of values and an array of callbacks. 
+Construct a function called multiMap that will accept two arrays: an array of values and an array of callbacks. 
 multiMap will return an object whose keys match the elements in the array of values. 
 The corresponding values that are assigned to the keys will be arrays consisting of outputs 
 from the array of callbacks, where the input to each callback is the key.
@@ -190,7 +190,7 @@ function multiMap(arrVals, arrCallbacks) {
 
 // Challenge 11 ✅
 /*
-Construct a function objectFilter that accepts an object as the first parameter and a callback 
+Construct a function called objectFilter that accepts an object as the first parameter and a callback 
 function as the second parameter. objectFilter will return a new object. 
 The new object will contain only the properties from the input object such that 
 the property's value is equal to the property's key passed into the callback.
@@ -218,7 +218,7 @@ function objectFilter(obj, callback) {
 
 // Challenge 12 ✅
 /*
-Create a function majority that accepts an array and a callback. The callback will return either true or false. 
+Create a function called majority that accepts an array and a callback. The callback will return either true or false. 
 majority will iterate through the array and perform the callback on each element until it can be determined if 
 the majority of the return values from the callback are true. If the number of true returns is equal to the 
 number of false returns, majority should return false.
@@ -235,30 +235,40 @@ function majority(array, callback) {
 }
 
 /*** Uncomment these to check your work! ***/
-const isItOdd = function(num) { return num % 2 === 1; };
-console.log(majority([1, 2, 3, 4, 5], isItOdd)); // should log: true
-console.log(majority([2, 3, 4, 5], isItOdd)); // should log: false
+// const isItOdd = function(num) { return num % 2 === 1; };
+// console.log(majority([1, 2, 3, 4, 5], isItOdd)); // should log: true
+// console.log(majority([2, 3, 4, 5], isItOdd)); // should log: false
 
 
-// Challenge 13
+// Challenge 13 ✅
 /*
-Create a function prioritize that accepts an array and a callback. The callback will return either true or false. 
+Create a function called prioritize that accepts an array and a callback. The callback will return either true or false. 
 prioritize will iterate through the array and perform the callback on each element, and return a new array, 
 where all the elements that yielded a return value of true come first in the array, and the rest of the elements come second.
 */
 function prioritize(array, callback) {
+    const trueVals = [];
+    const falseVals = [];
 
+    for (let i = 0; i < array.length; i++) {
+        let result = callback(array[i]);
+
+        result ? trueVals.push(array[i]) : falseVals.push(array[i]);
+    }
+
+
+    return trueVals.concat(falseVals);
 }
 
 // /*** Uncomment these to check your work! ***/
-// const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
-// console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
+const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
+console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
 ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
 // Challenge 14
 /*
-Create a function countBy that accepts an array and a callback, and returns an object. 
+Create a function called countBy that accepts an array and a callback, and returns an object. 
 countBy will iterate through the array and perform the callback on each element. 
 Each return value from the callback will be saved as a key on the object. 
 The value associated with each key will be the number of times that particular return value was returned.
@@ -276,7 +286,7 @@ function countBy(array, callback) {
 
 // Challenge 15
 /*
-Create a function groupBy that accepts an array and a callback, and returns an object. 
+Create a function called groupBy that accepts an array and a callback, and returns an object. 
 groupBy will iterate through the array and perform the callback on each element. 
 Each return value from the callback will be saved as a key on the object. 
 The value associated with each key will be an array consisting of all the elements 
@@ -294,7 +304,7 @@ function groupBy(array, callback) {
 
 // Challenge 16
 /*
-Create a function goodKeys that accepts an object and a callback. The callback will return either true or false. 
+Create a function called goodKeys that accepts an object and a callback. The callback will return either true or false. 
 goodKeys will iterate through the object and perform the callback on each value. goodKeys will then return an array 
 consisting only the keys whose associated values yielded a true return value from the callback.
 */
@@ -310,7 +320,7 @@ function goodKeys(obj, callback) {
 
 // Challenge 17
 /*
-Create a function commutative that accepts two callbacks and a value. 
+Create a function called commutative that accepts two callbacks and a value. 
 commutative will return a boolean indicating if the passing the value into the first function, 
 and then passing the resulting output into the second function, yields the same output as the same 
 operation with the order of the functions reversed (passing the value into the second function, 
@@ -331,7 +341,7 @@ function commutative(func1, func2, value) {
 
 // Challenge 18
 /*
-Create a function objFilter that accepts an object and a callback. objFilter should make a new object, 
+Create a function called objFilter that accepts an object and a callback. objFilter should make a new object, 
 and then iterate through the passed-in object, using each key as input for the callback. 
 If the output from the callback is equal to the corresponding value, then that key-value pair 
 is copied into the new object. objFilter will return this new object.
@@ -351,7 +361,7 @@ function objFilter(obj, callback) {
 
 // Challenge 19
 /*
-Create a function rating that accepts an array (of functions) and a value. 
+Create a function called rating that accepts an array (of functions) and a value. 
 All the functions in the array will return true or false. rating should return 
 the percentage of functions from the array that return true when the value is used as input.
 */
@@ -371,7 +381,7 @@ function rating(arrOfFuncs, value) {
 
 // Challenge 20
 /*
-Create a function pipe that accepts an array (of functions) and a value. 
+Create a function called pipe that accepts an array (of functions) and a value. 
 pipe should input the value into the first function in the array, 
 and then use the output from that function as input for the second function, 
 and then use the output from that function as input for the third function, 
@@ -392,7 +402,7 @@ function pipe(arrOfFuncs, value) {
 
 // Challenge 21
 /*
-Create a function highestFunc that accepts an object (which will contain functions) 
+Create a function called highestFunc that accepts an object (which will contain functions) 
 and a subject (which is any value). highestFunc should return the key of the object 
 whose associated value (which will be a function) returns the largest number, 
 when the subject is given as input.
@@ -413,7 +423,7 @@ function highestFunc(objOfFuncs, subject) {
 
 // Challenge 22
 /*
-Create a function, combineOperations, that takes two parameters: a starting value and an array of functions. 
+Create a function called, combineOperations, that takes two parameters: a starting value and an array of functions. 
 combineOperations should pass the starting value into the first function in the array. 
 combineOperations should pass the value returned by the first function into the second function, 
 and so on until every function in the array has been called. combineOperations should return the final 

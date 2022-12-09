@@ -261,12 +261,12 @@ function prioritize(array, callback) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
-console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
-['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+// const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
+// console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
+// ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
-// Challenge 14
+// Challenge 14 ✅
 /*
 Create a function called countBy that accepts an array and a callback, and returns an object. 
 countBy will iterate through the array and perform the callback on each element. 
@@ -274,7 +274,18 @@ Each return value from the callback will be saved as a key on the object.
 The value associated with each key will be the number of times that particular return value was returned.
 */
 function countBy(array, callback) {
+    const result = {};
 
+    for (let element of array) {
+        let value = callback(element);
+        if (!result[value]) {
+            result[value] = 1;
+        } else {
+            result[value]++;
+        }
+    }
+
+    return result;
 }
 
 // /*** Uncomment these to check your work! ***/

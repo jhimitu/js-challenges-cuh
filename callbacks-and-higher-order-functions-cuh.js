@@ -295,7 +295,7 @@ function countBy(array, callback) {
 // })); // should log: { odd: 3, even: 2 }
 
 
-// Challenge 15
+// Challenge 15 ✅
 /*
 Create a function called groupBy that accepts an array and a callback, and returns an object. 
 groupBy will iterate through the array and perform the callback on each element. 
@@ -304,7 +304,16 @@ The value associated with each key will be an array consisting of all the elemen
 that resulted in that return value when passed into the callback.
 */
 function groupBy(array, callback) {
-
+    const result = {};
+    for (let i = 0; i < array.length; i++) {
+        let key = callback(array[i]);
+        if (!result[key]) {
+            result[key] = [array[i]];
+        } else {
+            result[key].push(array[i]);
+        }
+    }
+    return result;
 }
 
 // /*** Uncomment these to check your work! ***/

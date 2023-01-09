@@ -394,32 +394,39 @@ function objFilter(obj, callback) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const startingObj = {};
-startingObj[6] = 3;
-startingObj[2] = 1;
-startingObj[12] = 4;
-const half = n => n / 2;
-console.log(objFilter(startingObj, half)); // should log: { 2: 1, 6: 3 }
+// const startingObj = {};
+// startingObj[6] = 3;
+// startingObj[2] = 1;
+// startingObj[12] = 4;
+// const half = n => n / 2;
+// console.log(objFilter(startingObj, half)); // should log: { 2: 1, 6: 3 }
 
 
-// Challenge 19
+// Challenge 19 ✅
 /*
 Create a function called rating that accepts an array (of functions) and a value. 
 All the functions in the array will return true or false. rating should return 
 the percentage of functions from the array that return true when the value is used as input.
 */
 function rating(arrOfFuncs, value) {
-
+  let trueFuncsCount = 0;
+  for (const func of arrOfFuncs) {
+    let result = func(value);
+    if (result === true) {
+        trueFuncsCount++;
+    }
+  }
+  return (trueFuncsCount / arrOfFuncs.length) * 100;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const isEven = n => n % 2 === 0;
-// const greaterThanFour = n => n > 4;
-// const isSquare = n => Math.sqrt(n) % 1 === 0;
-// const hasSix = n => n.toString().includes('6');
-// const checks = [isEven, greaterThanFour, isSquare, hasSix];
-// console.log(rating(checks, 64)); // should log: 100
-// console.log(rating(checks, 66)); // should log: 75
+const isEven = n => n % 2 === 0;
+const greaterThanFour = n => n > 4;
+const isSquare = n => Math.sqrt(n) % 1 === 0;
+const hasSix = n => n.toString().includes('6');
+const checks = [isEven, greaterThanFour, isSquare, hasSix];
+console.log(rating(checks, 64)); // should log: 100
+console.log(rating(checks, 66)); // should log: 75
 
 
 // Challenge 20

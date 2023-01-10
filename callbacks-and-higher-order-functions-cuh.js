@@ -420,16 +420,16 @@ function rating(arrOfFuncs, value) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const isEven = n => n % 2 === 0;
-const greaterThanFour = n => n > 4;
-const isSquare = n => Math.sqrt(n) % 1 === 0;
-const hasSix = n => n.toString().includes('6');
-const checks = [isEven, greaterThanFour, isSquare, hasSix];
-console.log(rating(checks, 64)); // should log: 100
-console.log(rating(checks, 66)); // should log: 75
+// const isEven = n => n % 2 === 0;
+// const greaterThanFour = n => n > 4;
+// const isSquare = n => Math.sqrt(n) % 1 === 0;
+// const hasSix = n => n.toString().includes('6');
+// const checks = [isEven, greaterThanFour, isSquare, hasSix];
+// console.log(rating(checks, 64)); // should log: 100
+// console.log(rating(checks, 66)); // should log: 75
 
 
-// Challenge 20
+// Challenge 20 ✅
 /*
 Create a function called pipe that accepts an array (of functions) and a value. 
 pipe should input the value into the first function in the array, 
@@ -439,7 +439,13 @@ and so forth, until we have an output from the last function in the array.
 pipe should return the final output.
 */
 function pipe(arrOfFuncs, value) {
+    let output = arrOfFuncs[0](value);
 
+    for (let i = 1; i < arrOfFuncs.length; i++) {
+        output = arrOfFuncs[i](output);
+    }
+
+    return output;
 }
 
 // /*** Uncomment these to check your work! ***/

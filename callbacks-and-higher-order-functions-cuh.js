@@ -456,7 +456,7 @@ function pipe(arrOfFuncs, value) {
 // console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
 
 
-// Challenge 21
+// Challenge 21 ✅
 /*
 Create a function called highestFunc that accepts an object (which will contain functions) 
 and a subject (which is any value). highestFunc should return the key of the object 
@@ -464,7 +464,16 @@ whose associated value (which will be a function) returns the largest number,
 when the subject is given as input.
 */
 function highestFunc(objOfFuncs, subject) {
-
+    let largestOutput = 0;
+    let keyOfLargestOutput;
+    for (const func in objOfFuncs) {
+        let result = objOfFuncs[func](subject);
+        if (result > largestOutput) {
+            largestOutput = result;
+            keyOfLargestOutput = func;
+        }
+    }
+    return keyOfLargestOutput;
 }
 
 // /*** Uncomment these to check your work! ***/
